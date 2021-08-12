@@ -2,7 +2,7 @@
 
 ## Third-party Software Complilation
 
-## nasm
+### nasm
 
 ```sh
 wget https://www.nasm.us/pub/nasm/releasebuilds/2.15.05/nasm-2.15.05.tar.xz
@@ -10,6 +10,7 @@ tar Jxvf nasm-2.15.05.tar.xz
 pushd nasm-2.15.05
 ./configure
 make && make install
+popd
 ```
 
 ### libx264
@@ -43,7 +44,7 @@ make && make install
 popd
 ```
 
-## libmp3lame
+### libmp3lame
 
 ```sh
 wget -O lame-3.100.tar.gz https://sourceforge.net/projects/lame/files/lame/3.100/lame-3.100.tar.gz/download
@@ -53,7 +54,7 @@ make && make install
 popd
 ```
 
-## libvpx
+### libvpx
 
 ```sh
 wget https://github.com/webmproject/libvpx/archive/v1.10.0/libvpx-1.10.0.tar.gz
@@ -66,7 +67,7 @@ make && make install
 popd
 ```
 
-## libopus
+### libopus
 
 ```sh
 wget https://archive.mozilla.org/pub/opus/opus-1.3.1.tar.gz
