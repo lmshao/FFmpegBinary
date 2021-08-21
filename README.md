@@ -29,6 +29,7 @@ popd
 ```sh
 hg clone http://hg.videolan.org/x265
 pushd x265/build/linux/
+./make-Makefiles.bash
 make && make install
 popd
 ```
