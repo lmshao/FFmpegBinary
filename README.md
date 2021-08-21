@@ -49,6 +49,7 @@ popd
 
 ```sh
 wget -O lame-3.100.tar.gz https://sourceforge.net/projects/lame/files/lame/3.100/lame-3.100.tar.gz/download
+tar zxvf lame-3.100.tar.gz
 pushd lame-3.100
 ./configure
 make && make install
@@ -59,7 +60,7 @@ popd
 
 ```sh
 wget https://github.com/webmproject/libvpx/archive/v1.10.0/libvpx-1.10.0.tar.gz
-tar zxvf libvpx-1.10.0.tar.gz 
+tar zxvf libvpx-1.10.0.tar.gz
 pushd libvpx-1.10.0
 sed -i 's/cp -p/cp/' build/make/Makefile
 mkdir libvpx-build && cd libvpx-build
