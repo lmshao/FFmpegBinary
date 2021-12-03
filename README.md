@@ -29,7 +29,7 @@ popd
 ```sh
 hg clone http://hg.videolan.org/x265
 pushd x265/build/linux/
-./make-Makefiles.bash
+cmake ../../source -DHIGH_BIT_DEPTH=ON
 make && make install
 popd
 ```
@@ -37,9 +37,9 @@ popd
 ### libfdk-aac
 
 ```sh
-wget -O fdk-aac-2.0.1.tar.gz https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-2.0.1.tar.gz/download
-tar zxvf fdk-aac-2.0.1.tar.gz
-pushd fdk-aac-2.0.1
+wget -O fdk-aac-2.0.2.tar.gz https://sourceforge.net/projects/opencore-amr/files/fdk-aac/fdk-aac-2.0.2.tar.gz/download
+tar zxvf fdk-aac-2.0.2.tar.gz
+pushd fdk-aac-2.0.2
 ./configure
 make && make install
 popd
@@ -80,6 +80,16 @@ make && make install
 popd
 ```
 
+### libaom
+
+```sh
+git clone https://aomedia.googlesource.com/aom
+git checkout v3.2.0 -b v3.2.0
+mkdir build && pushd build
+cmake .. -DBUILD_SHARED_LIBS=1
+make && make install
+```
+
 ## FFmpeg Complilation
 
 ```sh
@@ -87,7 +97,7 @@ wget https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.bz2
 tar jxvf ffmpeg-4.4.tar.bz2
 pushd ffmpeg-4.4
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
-./configure --prefix=./ffmpeg-4.4-$(date +%Y%m%d) --enable-shared --disable-static --enable-gpl --enable-nonfree --enable-libx264 --enable-libx265 --enable-libfdk-aac --enable-libmp3lame --enable-libvpx --enable-libopus
+./configure --prefix=./ffmpeg-4.4.1-$(date +%Y%m%d) --enable-shared --disable-static --enable-gpl --enable-nonfree --enable-libx264 --enable-libx265 --enable-libfdk-aac --enable-libmp3lame --enable-libvpx --enable-libopus --enable-libaom --enable-openssl
 make && make install
 popd
 ```
