@@ -93,9 +93,9 @@ make && make install
 ## FFmpeg Complilation
 
 ```sh
-wget https://www.ffmpeg.org/releases/ffmpeg-4.4.tar.bz2
-tar jxvf ffmpeg-4.4.tar.bz2
-pushd ffmpeg-4.4
+wget https://www.ffmpeg.org/releases/ffmpeg-4.4.1.tar.bz2
+tar jxvf ffmpeg-4.4.1.tar.bz2
+pushd ffmpeg-4.4.1
 export PKG_CONFIG_PATH=/usr/local/lib/pkgconfig/
 ./configure --prefix=./ffmpeg-4.4.1-$(date +%Y%m%d) --enable-shared --disable-static --enable-gpl --enable-nonfree --enable-libx264 --enable-libx265 --enable-libfdk-aac --enable-libmp3lame --enable-libvpx --enable-libopus --enable-libaom --enable-openssl
 make && make install
